@@ -1,37 +1,89 @@
-📚 What is Clausely?
+# Harvey
 
-**Clausely** is an AI-powered tool that helps users intelligently analyze legal documents.  
-It extracts clauses, classifies them using ML/NLP models, summarizes the document’s intent, and even provides an integrated chatbot for real-time legal Q&A.
+Harvey is an AI-powered legal document analyzer. Named after the sharpest closer in New York — because your contracts deserve the same ruthless attention to detail.
 
-![Screenshot 2025-07-10 003912](https://github.com/user-attachments/assets/6bc8985c-8e57-491d-a12c-abb7a055172f)
+Upload a legal document. Harvey reads it, extracts every clause, classifies it, summarizes the intent in plain English, and lets you interrogate it like a deposition.
 
-🤖 What Does It Do?
+---
 
-Just upload any legal document (PDF, TXT, or scanned image), and LegalDocAnalyzer will:
+## What Harvey does
 
-- 🔍 **Extract and identify legal clauses** with precision
-- 🧠 **Classify clauses** (e.g., confidentiality, indemnity, dispute resolution) using ML or LegalBERT
-- 🪄 **Summarize** the core legal intent in plain English
-- 📜 **OCR** scanned documents and handwritten text using Tesseract
-- 💬 **Chat with the document** — ask things like:
-  - “Is there a termination clause?”
-  - “Who bears the liability?”
-  - “Is there any mention of arbitration?”
+- **Clause extraction** — identifies and isolates individual legal clauses from any document
+- **Clause classification** — categorizes clauses (confidentiality, indemnity, termination, dispute resolution, etc.) using ML + LegalBERT
+- **Plain-English summarization** — translates legal jargon into what it actually means
+- **OCR support** — handles scanned documents and image-based PDFs via Tesseract
+- **Document Q&A** — ask Harvey directly: *"Is there a termination clause?"*, *"Who bears liability?"*, *"Any mention of arbitration?"*
 
-Whether you're a legal practitioner, startup founder, or student — this tool helps you decode legal jargon with ease.
+---
 
-![Screenshot 2025-07-10 004304](https://github.com/user-attachments/assets/4b0cee2c-deff-4bc6-a717-b85e1c5c9e09)
+## Screenshots
 
-🛠️ Technologies Used
+| Document Summary | Clause Extraction & Q&A |
+|---|---|
+| ![Summary](assets/screenshot1.png) | ![Clauses](assets/screenshot2.png) |
 
-- 🧠 **Machine Learning (Scikit-learn)** – Clause classification
-- 🤖 **Transformers / LegalBERT** – Deep NLP for legal context understanding
-- 🧾 **Spacy** – Named Entity Recognition (NER)
-- 📄 **PyMuPDF / PDFMiner / Textract** – PDF and text file parsing
-- 📸 **Tesseract OCR** – For scanned documents or image-based text!
-- 🐍 **Python** – Core implementation language
-- 🧱 **HTML, CSS, JavaScript** – For building interactive browser-based UI 
+---
 
-  ![Screenshot 2025-07-10 004248](https://github.com/user-attachments/assets/8531809f-16cf-4d1e-a04e-0891de2f913e)
+## Tech Stack
 
-Thank You Everyone❤️
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SpaCy](https://img.shields.io/badge/SpaCy-09A3D5?style=flat-square&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+![Tesseract](https://img.shields.io/badge/Tesseract_OCR-4285F4?style=flat-square&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+
+| Component | Technology |
+|---|---|
+| Clause classification | Scikit-learn + LegalBERT |
+| Named Entity Recognition | SpaCy |
+| OCR (scanned docs) | PyTesseract |
+| PDF parsing | PyMuPDF |
+| UI | Streamlit |
+
+---
+
+## Getting Started
+
+```bash
+git clone https://github.com/DhruvKarani/Harvey.git
+cd Harvey
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Then open `http://localhost:8501` in your browser.
+
+---
+
+## Supported Input Formats
+
+- PDF (text-based)
+- PDF (scanned / image-based) — via OCR
+- TXT files
+
+---
+
+## Project Structure
+
+```
+Harvey/
+│
+├── app.py                  # Flask backend
+├── LegalDocAnalyser.py     # Core NLP pipeline
+├── clauses_db.json         # Clause classification database
+├── HomePage.html           # Frontend UI
+├── Home.css                # Styling
+├── Homie.js                # Frontend logic
+├── data/                   # Sample legal documents
+└── uploads/                # User-uploaded files (gitignored)
+```
+
+---
+
+## Author
+
+**Dhruv Karani** · [LinkedIn](https://www.linkedin.com/in/dhruv-karani-06a03229a/)
+
+---
+
+*Harvey doesn't lose. Neither should you.*
