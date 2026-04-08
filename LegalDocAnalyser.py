@@ -6,11 +6,9 @@ import re
 import tkinter as tk
 from tkinter import filedialog, scrolledtext
 
-# Set the path to tesseract.exe if not in PATH (adjust if needed)
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-# Set the path to Poppler's bin directory for pdf2image (adjust if needed)
-poppler_path = r'C:\Users\dhruv\Downloads\Release-24.08.0-0\poppler-24.08.0\Library\bin'  # <-- Change this to your actual Poppler bin path
+poppler_path = r'C:\Users\dhruv\Downloads\Release-24.08.0-0\poppler-24.08.0\Library\bin'
 os.environ["PATH"] += os.pathsep + poppler_path
 
 try:
@@ -23,10 +21,21 @@ try:
 except ImportError:
     PDFInfoNotInstalledError = Exception
 
+
+def clean_text(text):
+    # ---------------------------------------------------------------------------
+    # Collapse all whitespace — newlines, tabs, multiple spaces — into one space.
+    # PyPDF2 often inserts \n after every word when parsing PDFs.
+    # We do this ONCE after all pages are collected, not inside the page loop.
+    # ---------------------------------------------------------------------------
+    return ' '.join(text.split())
+
+
 def extract_text(filepath):
     if filepath.endswith('.txt'):
         with open(filepath, 'r', encoding='utf-8') as f:
             return f.read()
+
     elif filepath.endswith('.pdf'):
         try:
             with open(filepath, 'rb') as f:
@@ -36,85 +45,116 @@ def extract_text(filepath):
                     page_text = page.extract_text()
                     if page_text:
                         text += page_text
+                        # NOTE: do NOT clean inside this loop
+                        # cleaning must happen after all pages are joined
+
             if text.strip():
+                text = clean_text(text)  # clean ONCE after all pages collected
                 print("[DEBUG] Direct PDF extraction succeeded. Length:", len(text))
                 return text
             else:
                 print("[DEBUG] Direct PDF extraction returned empty text.")
+
         except Exception as e:
             print(f"[DEBUG] Direct PDF extraction failed: {e}")
+
         try:
-            print("[DEBUG] Attempting OCR extraction with pdf2image and pytesseract...")
+            print("[DEBUG] Attempting OCR extraction...")
             images = convert_from_path(filepath)
-            print(f"[DEBUG] Number of images/pages detected: {len(images)}")
             ocr_text = ""
             for idx, img in enumerate(images):
                 page_ocr = pytesseract.image_to_string(img)
-                print(f"[DEBUG] OCR text length for page {idx+1}: {len(page_ocr)}")
+                print(f"[DEBUG] OCR page {idx+1} length: {len(page_ocr)}")
                 ocr_text += page_ocr
-            if not ocr_text.strip():
-                print("[DEBUG] OCR extraction returned empty text. Check if Tesseract is installed and in PATH.")
+
+            if ocr_text.strip():
+                ocr_text = clean_text(ocr_text)  # clean OCR output too
+                print(f"[DEBUG] OCR succeeded. Length: {len(ocr_text)}")
             else:
-                print(f"[DEBUG] OCR extraction succeeded. Total OCR text length: {len(ocr_text)}")
+                print("[DEBUG] OCR returned empty text.")
             return ocr_text
-        except PDFInfoNotInstalledError as e:
-            print("[DEBUG] Poppler is not installed or not in PATH. Please install Poppler and add it to your PATH.")
+
+        except PDFInfoNotInstalledError:
+            print("[DEBUG] Poppler not installed or not in PATH.")
             return ""
         except Exception as e:
-            print(f"[DEBUG] OCR extraction failed: {e}")
+            print(f"[DEBUG] OCR failed: {e}")
             return ""
     else:
         print("[DEBUG] Unsupported file type.")
         return ""
 
+
 def extract_clauses(text):
-    import re
-    # Try to split on numbered clauses (e.g., 1. ... 2. ...)
-    pattern = r'(?:^|\n)(\d+\.\s)'
-    splits = [m.start() for m in re.finditer(pattern, text)]
-    if len(splits) > 1:
+    # ---------------------------------------------------------------------------
+    # Since clean_text() removed all newlines, we can no longer split on \n.
+    # We now split on numbered clause patterns that appear inline.
+    # e.g. "...end of clause 1. 2. Payment The client agrees..."
+    #
+    # Strategy 1: numbered clauses — "1. " "2. " etc appearing mid-text
+    # Strategy 2: heading keywords — "Section X:" "Article X:"
+    # Strategy 3: sentence splitting fallback
+    # ---------------------------------------------------------------------------
+
+    # Strategy 1: numbered clauses
+    # re.split keeps the delimiter when wrapped in a capturing group
+    parts = re.split(r'(\d+\.\s+[A-Z])', text)
+    if len(parts) > 3:
+        # re.split with capturing group gives: [before, delim, content, delim, content...]
+        # rejoin delimiter with its content
         clauses = []
-        for i in range(len(splits)):
-            start = splits[i]
-            end = splits[i+1] if i+1 < len(splits) else len(text)
-            clause = text[start:end].strip()
-            if clause:
+        i = 1
+        while i < len(parts) - 1:
+            clause = parts[i] + parts[i+1]
+            clause = clause.strip()
+            if len(clause) > 40:
                 clauses.append(clause)
-        print(f"[DEBUG] Extracted {len(clauses)} clauses (numbered split).")
-        return clauses
-    # Fallback: regex/paragraph splitting
-    pattern = r'(?:^|\n)([A-Z][A-Za-z\s]+?\s+Clause:|Section\s+\d+:|Article\s+\d+:|[A-Z][A-Za-z\s]+:|\d+\.\s+)'  # Match clause headings
-    splits = [m.start() for m in re.finditer(pattern, text)]
+            i += 2
+        if clauses:
+            print(f"[DEBUG] Extracted {len(clauses)} clauses (numbered split).")
+            return clauses
+
+    # Strategy 2: heading keywords
+    parts = re.split(r'((?:Section|Article|Clause)\s+\d+[:\.])', text, flags=re.IGNORECASE)
+    if len(parts) > 3:
+        clauses = []
+        i = 1
+        while i < len(parts) - 1:
+            clause = parts[i] + parts[i+1]
+            clause = clause.strip()
+            if len(clause) > 40:
+                clauses.append(clause)
+            i += 2
+        if clauses:
+            print(f"[DEBUG] Extracted {len(clauses)} clauses (heading split).")
+            return clauses
+
+    # Strategy 3: sentence-based fallback — group every 5 sentences into a clause
+    sentences = re.split(r'(?<=[.!?]) +', text)
     clauses = []
-    for i in range(len(splits)):
-        start = splits[i]
-        end = splits[i+1] if i+1 < len(splits) else len(text)
-        clause = text[start:end].strip()
-        if len(clause) > 40:
-            clauses.append(clause)
-    if clauses:
-        print(f"[DEBUG] Extracted {len(clauses)} clauses (heading split).")
-        return clauses
-    # fallback: split by paragraphs
-    paras = [p.strip() for p in text.split('\n\n') if len(p.strip()) > 40]
-    print(f"[DEBUG] Extracted {len(paras)} clauses (paragraph split).")
-    return paras
+    for i in range(0, len(sentences), 5):
+        chunk = ' '.join(sentences[i:i+5]).strip()
+        if len(chunk) > 40:
+            clauses.append(chunk)
+    print(f"[DEBUG] Extracted {len(clauses)} clauses (sentence fallback).")
+    return clauses
+
 
 def summarize_clause(clause):
     sentences = re.split(r'(?<=[.!?]) +', clause)
-    # Use first 2 sentences for a more meaningful summary
     summary = ' '.join(sentences[:2]) if sentences else clause
     if len(summary.split()) > 50:
         summary = ' '.join(summary.split()[:50]) + '...'
     return summary
 
+
 def summarize_document(text):
     sentences = re.split(r'(?<=[.!?]) +', text)
-    # Use first 5 sentences for a longer summary
     summary = ' '.join(sentences[:5])
     if len(summary.split()) > 120:
         summary = ' '.join(summary.split()[:120]) + '...'
     return summary
+
 
 def process_file(filepath, output_box):
     output_box.delete(1.0, tk.END)
@@ -138,6 +178,7 @@ def process_file(filepath, output_box):
             output_box.insert(tk.END, "Original: " + clause + "\n")
             output_box.insert(tk.END, "Summary: " + summarize_clause(clause) + "\n")
 
+
 def upload_and_process(output_box):
     filepath = filedialog.askopenfilename(
         title="Select a legal document",
@@ -145,6 +186,7 @@ def upload_and_process(output_box):
     )
     if filepath:
         process_file(filepath, output_box)
+
 
 if __name__ == '__main__':
     root = tk.Tk()
