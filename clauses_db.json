@@ -5938,5 +5938,584 @@
       ],
       "locations": []
     }
+  },
+  {
+    "text": "1. Scope of Services The Service Provider agrees to develop and deliver a custom inventory management software solution for the Client. The Service Provider shall assign a dedicated team of engineers led by Rahul Mehta, Senior Project Manager, to oversee delivery. The project shall commence on 15th January 2024 and shall be completed no later than 30th June 2024.",
+    "type": "unknown",
+    "matched_text": null,
+    "entities": {
+      "persons": [
+        "Rahul Mehta"
+      ],
+      "orgs": [
+        "Scope of Services The Service Provider"
+      ],
+      "dates": [
+        "15th January 2024",
+        "no later than 30th June 2024"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "2. Payment and Compensation The Client agrees to pay the Service Provider a total fee of INR 18,00,000 (Eighteen Lakh Rupees) for the services rendered under this Agreement. Payment shall be made in three equal instalments. The first invoice shall be raised upon signing of this Agreement, the second upon completion of 50% of deliverables, and the third upon final delivery. All payments are due within 15 days of receipt of invoice. In the event of delayed payment, the Service Provider reserves the right to charge interest at 1.5% per month on the outstanding amount.",
+    "type": "payment",
+    "matched_text": "Compensation",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider",
+        "INR"
+      ],
+      "dates": [
+        "15 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "3. Confidentiality and Non-Disclosure Each party acknowledges that during the course of this Agreement, it may receive confidential and proprietary information belonging to the other party. Both parties agree to keep all such information strictly confidential and shall not disclose it to any third party without prior written consent. This obligation of confidentiality shall survive the termination of this Agreement for a period of 3 years. The Client shall not reverse-engineer, decompile, or disassemble any software or proprietary tools shared by the Service Provider.",
+    "type": "confidentiality",
+    "matched_text": "confidential",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [
+        "3 years"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "4. Intellectual Property All intellectual property, including but not limited to software code, designs, documentation, and deliverables created by the Service Provider under this Agreement, shall remain the exclusive property of the Service Provider until full payment has been received. Upon receipt of final payment, ownership of the custom deliverables shall transfer to the Client. The Service Provider retains the right to use general methodologies, frameworks, and know-how developed during this engagement. Any use of the Client's trademark or copyright materials by the Service Provider shall require prior written approval.",
+    "type": "intellectual_property",
+    "matched_text": "Intellectual Property",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "5. Liability and Indemnification The Service Provider's total liability under this Agreement shall not exceed the total fees paid by the Client in the three months preceding the claim. In no event shall either party be liable for indirect, incidental, or consequential damages. The Client agrees to indemnify and hold harmless the Service Provider from any claims, damages, or expenses arising from the Client's misuse of the delivered software. This limitation of liability shall apply to all claims regardless of the form of action.",
+    "type": "liability",
+    "matched_text": "Liability",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [
+        "the three months"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "6. Termination Either party may terminate this Agreement by providing 30 days written notice to the other party. The Client may terminate this Agreement immediately in the event of a material breach by the Service Provider that remains uncured for 15 days after written notice. Upon termination, the Client shall pay for all services rendered up to the date of termination. The Service Provider shall deliver all completed work to the Client within 7 days of the termination date. Termination shall not affect any rights or obligations accrued prior to the termination date.",
+    "type": "termination",
+    "matched_text": "terminate",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [
+        "30 days",
+        "15 days",
+        "7 days"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "7. Force Majeure Neither party shall be held liable for failure to perform its obligations under this Agreement if such failure is caused by events beyond its reasonable control, including but not limited to acts of God, natural disasters, war, government actions, or any other unforeseeable circumstance. The affected party shall notify the other party in writing within 5 days of such an event occurring.",
+    "type": "force_majeure",
+    "matched_text": "Force Majeure",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [
+        "5 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "8. Dispute Resolution Any dispute, controversy, or claim arising out of or relating to this Agreement shall first be attempted to be resolved through good faith negotiation between the parties. If negotiation fails within 30 days, the dispute shall be referred to mediation. If mediation is unsuccessful, the parties agree to submit the dispute to binding arbitration in accordance with the Arbitration and Conciliation Act,",
+    "type": "dispute_resolution",
+    "matched_text": "Dispute Resolution",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Arbitration and Conciliation Act"
+      ],
+      "dates": [
+        "30 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "1996. The seat of arbitration shall be Mumbai, Maharashtra.",
+    "type": "dispute_resolution",
+    "matched_text": "arbitration",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "Maharashtra"
+      ],
+      "dates": [
+        "1996"
+      ],
+      "locations": [
+        "Mumbai"
+      ]
+    }
+  },
+  {
+    "text": "9. Assignment Neither party may assign or transfer its rights or obligations under this Agreement to any third party without the prior written consent of the other party. Any attempted assignment in violation of this clause shall be null and void.",
+    "type": "assignment",
+    "matched_text": "Assignment",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [],
+      "locations": []
+    }
+  },
+  {
+    "text": "10. Governing Law and Jurisdiction This Agreement shall be governed by and construed in accordance with the laws of India. The parties submit to the exclusive jurisdiction of the courts located in Mumbai, Maharashtra for resolution of any disputes not resolved through arbitration.",
+    "type": "governing_law",
+    "matched_text": "Governing Law",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "Maharashtra for"
+      ],
+      "dates": [],
+      "locations": [
+        "India",
+        "Mumbai"
+      ]
+    }
+  },
+  {
+    "text": "11. Notice All notices required or permitted under this Agreement shall be in writing and delivered to the addresses stated above. Notice shall be deemed received upon delivery by registered post, courier, or email with read receipt confirmed. IN WITNESS WHEREOF , the parties have executed this Agreement as of the date first written above. For Nexaflow Technologies Private Limited Signed: Priya Sharma, Director Date: 1st January 2024 For Arora Retail Solutions Private Limited Signed: Vikram Arora, CEO Date: 1st January 2024",
+    "type": "notice",
+    "matched_text": "Notice",
+    "entities": {
+      "persons": [
+        "Priya Sharma",
+        "Date",
+        "Vikram Arora"
+      ],
+      "orgs": [
+        "Notice All",
+        "Nexaflow Technologies Private Limited Signed",
+        "Arora Retail Solutions Private Limited Signed"
+      ],
+      "dates": [
+        "1st January 2024"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "1. Scope of Services The Service Provider agrees to develop and deliver a custom inventory management software solution for the Client. The Service Provider shall assign a dedicated team of engineers led by Rahul Mehta, Senior Project Manager, to oversee delivery. The project shall commence on 15th January 2024 and shall be completed no later than 30th June 2024.",
+    "type": "unknown",
+    "matched_text": null,
+    "entities": {
+      "persons": [
+        "Rahul Mehta"
+      ],
+      "orgs": [
+        "Scope of Services The Service Provider"
+      ],
+      "dates": [
+        "15th January 2024",
+        "no later than 30th June 2024"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "2. Payment and Compensation The Client agrees to pay the Service Provider a total fee of INR 18,00,000 (Eighteen Lakh Rupees) for the services rendered under this Agreement. Payment shall be made in three equal instalments. The first invoice shall be raised upon signing of this Agreement, the second upon completion of 50% of deliverables, and the third upon final delivery. All payments are due within 15 days of receipt of invoice. In the event of delayed payment, the Service Provider reserves the right to charge interest at 1.5% per month on the outstanding amount.",
+    "type": "payment",
+    "matched_text": "Compensation",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider",
+        "INR"
+      ],
+      "dates": [
+        "15 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "3. Confidentiality and Non-Disclosure Each party acknowledges that during the course of this Agreement, it may receive confidential and proprietary information belonging to the other party. Both parties agree to keep all such information strictly confidential and shall not disclose it to any third party without prior written consent. This obligation of confidentiality shall survive the termination of this Agreement for a period of 3 years. The Client shall not reverse-engineer, decompile, or disassemble any software or proprietary tools shared by the Service Provider.",
+    "type": "confidentiality",
+    "matched_text": "confidential",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [
+        "3 years"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "4. Intellectual Property All intellectual property, including but not limited to software code, designs, documentation, and deliverables created by the Service Provider under this Agreement, shall remain the exclusive property of the Service Provider until full payment has been received. Upon receipt of final payment, ownership of the custom deliverables shall transfer to the Client. The Service Provider retains the right to use general methodologies, frameworks, and know-how developed during this engagement. Any use of the Client's trademark or copyright materials by the Service Provider shall require prior written approval.",
+    "type": "intellectual_property",
+    "matched_text": "Intellectual Property",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "5. Liability and Indemnification The Service Provider's total liability under this Agreement shall not exceed the total fees paid by the Client in the three months preceding the claim. In no event shall either party be liable for indirect, incidental, or consequential damages. The Client agrees to indemnify and hold harmless the Service Provider from any claims, damages, or expenses arising from the Client's misuse of the delivered software. This limitation of liability shall apply to all claims regardless of the form of action.",
+    "type": "liability",
+    "matched_text": "Liability",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [
+        "the three months"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "6. Termination Either party may terminate this Agreement by providing 30 days written notice to the other party. The Client may terminate this Agreement immediately in the event of a material breach by the Service Provider that remains uncured for 15 days after written notice. Upon termination, the Client shall pay for all services rendered up to the date of termination. The Service Provider shall deliver all completed work to the Client within 7 days of the termination date. Termination shall not affect any rights or obligations accrued prior to the termination date.",
+    "type": "termination",
+    "matched_text": "terminate",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [
+        "30 days",
+        "15 days",
+        "7 days"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "7. Force Majeure Neither party shall be held liable for failure to perform its obligations under this Agreement if such failure is caused by events beyond its reasonable control, including but not limited to acts of God, natural disasters, war, government actions, or any other unforeseeable circumstance. The affected party shall notify the other party in writing within 5 days of such an event occurring.",
+    "type": "force_majeure",
+    "matched_text": "Force Majeure",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [
+        "5 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "8. Dispute Resolution Any dispute, controversy, or claim arising out of or relating to this Agreement shall first be attempted to be resolved through good faith negotiation between the parties. If negotiation fails within 30 days, the dispute shall be referred to mediation. If mediation is unsuccessful, the parties agree to submit the dispute to binding arbitration in accordance with the Arbitration and Conciliation Act,",
+    "type": "dispute_resolution",
+    "matched_text": "Dispute Resolution",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Arbitration and Conciliation Act"
+      ],
+      "dates": [
+        "30 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "1996. The seat of arbitration shall be Mumbai, Maharashtra.",
+    "type": "dispute_resolution",
+    "matched_text": "arbitration",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "Maharashtra"
+      ],
+      "dates": [
+        "1996"
+      ],
+      "locations": [
+        "Mumbai"
+      ]
+    }
+  },
+  {
+    "text": "9. Assignment Neither party may assign or transfer its rights or obligations under this Agreement to any third party without the prior written consent of the other party. Any attempted assignment in violation of this clause shall be null and void.",
+    "type": "assignment",
+    "matched_text": "Assignment",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [],
+      "locations": []
+    }
+  },
+  {
+    "text": "10. Governing Law and Jurisdiction This Agreement shall be governed by and construed in accordance with the laws of India. The parties submit to the exclusive jurisdiction of the courts located in Mumbai, Maharashtra for resolution of any disputes not resolved through arbitration.",
+    "type": "governing_law",
+    "matched_text": "Governing Law",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "Maharashtra for"
+      ],
+      "dates": [],
+      "locations": [
+        "India",
+        "Mumbai"
+      ]
+    }
+  },
+  {
+    "text": "11. Notice All notices required or permitted under this Agreement shall be in writing and delivered to the addresses stated above. Notice shall be deemed received upon delivery by registered post, courier, or email with read receipt confirmed. IN WITNESS WHEREOF , the parties have executed this Agreement as of the date first written above. For Nexaflow Technologies Private Limited Signed: Priya Sharma, Director Date: 1st January 2024 For Arora Retail Solutions Private Limited Signed: Vikram Arora, CEO Date: 1st January 2024",
+    "type": "notice",
+    "matched_text": "Notice",
+    "entities": {
+      "persons": [
+        "Priya Sharma",
+        "Date",
+        "Vikram Arora"
+      ],
+      "orgs": [
+        "Notice All",
+        "Nexaflow Technologies Private Limited Signed",
+        "Arora Retail Solutions Private Limited Signed"
+      ],
+      "dates": [
+        "1st January 2024"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "1. Scope of Services The Service Provider agrees to develop and deliver a custom inventory management software solution for the Client. The Service Provider shall assign a dedicated team of engineers led by Rahul Mehta, Senior Project Manager, to oversee delivery. The project shall commence on 15th January 2024 and shall be completed no later than 30th June 2024.",
+    "type": "unknown",
+    "matched_text": null,
+    "entities": {
+      "persons": [
+        "Rahul Mehta"
+      ],
+      "orgs": [
+        "Scope of Services The Service Provider"
+      ],
+      "dates": [
+        "15th January 2024",
+        "no later than 30th June 2024"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "2. Payment and Compensation The Client agrees to pay the Service Provider a total fee of INR 18,00,000 (Eighteen Lakh Rupees) for the services rendered under this Agreement. Payment shall be made in three equal instalments. The first invoice shall be raised upon signing of this Agreement, the second upon completion of 50% of deliverables, and the third upon final delivery. All payments are due within 15 days of receipt of invoice. In the event of delayed payment, the Service Provider reserves the right to charge interest at 1.5% per month on the outstanding amount.",
+    "type": "payment",
+    "matched_text": "Compensation",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider",
+        "INR"
+      ],
+      "dates": [
+        "15 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "3. Confidentiality and Non-Disclosure Each party acknowledges that during the course of this Agreement, it may receive confidential and proprietary information belonging to the other party. Both parties agree to keep all such information strictly confidential and shall not disclose it to any third party without prior written consent. This obligation of confidentiality shall survive the termination of this Agreement for a period of 3 years. The Client shall not reverse-engineer, decompile, or disassemble any software or proprietary tools shared by the Service Provider.",
+    "type": "confidentiality",
+    "matched_text": "confidential",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [
+        "3 years"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "4. Intellectual Property All intellectual property, including but not limited to software code, designs, documentation, and deliverables created by the Service Provider under this Agreement, shall remain the exclusive property of the Service Provider until full payment has been received. Upon receipt of final payment, ownership of the custom deliverables shall transfer to the Client. The Service Provider retains the right to use general methodologies, frameworks, and know-how developed during this engagement. Any use of the Client's trademark or copyright materials by the Service Provider shall require prior written approval.",
+    "type": "intellectual_property",
+    "matched_text": "Intellectual Property",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "5. Liability and Indemnification The Service Provider's total liability under this Agreement shall not exceed the total fees paid by the Client in the three months preceding the claim. In no event shall either party be liable for indirect, incidental, or consequential damages. The Client agrees to indemnify and hold harmless the Service Provider from any claims, damages, or expenses arising from the Client's misuse of the delivered software. This limitation of liability shall apply to all claims regardless of the form of action.",
+    "type": "liability",
+    "matched_text": "Liability",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [
+        "the three months"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "6. Termination Either party may terminate this Agreement by providing 30 days written notice to the other party. The Client may terminate this Agreement immediately in the event of a material breach by the Service Provider that remains uncured for 15 days after written notice. Upon termination, the Client shall pay for all services rendered up to the date of termination. The Service Provider shall deliver all completed work to the Client within 7 days of the termination date. Termination shall not affect any rights or obligations accrued prior to the termination date.",
+    "type": "termination",
+    "matched_text": "terminate",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Service Provider"
+      ],
+      "dates": [
+        "30 days",
+        "15 days",
+        "7 days"
+      ],
+      "locations": [
+        "Client"
+      ]
+    }
+  },
+  {
+    "text": "7. Force Majeure Neither party shall be held liable for failure to perform its obligations under this Agreement if such failure is caused by events beyond its reasonable control, including but not limited to acts of God, natural disasters, war, government actions, or any other unforeseeable circumstance. The affected party shall notify the other party in writing within 5 days of such an event occurring.",
+    "type": "force_majeure",
+    "matched_text": "Force Majeure",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [
+        "5 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "8. Dispute Resolution Any dispute, controversy, or claim arising out of or relating to this Agreement shall first be attempted to be resolved through good faith negotiation between the parties. If negotiation fails within 30 days, the dispute shall be referred to mediation. If mediation is unsuccessful, the parties agree to submit the dispute to binding arbitration in accordance with the Arbitration and Conciliation Act,",
+    "type": "dispute_resolution",
+    "matched_text": "Dispute Resolution",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "the Arbitration and Conciliation Act"
+      ],
+      "dates": [
+        "30 days"
+      ],
+      "locations": []
+    }
+  },
+  {
+    "text": "1996. The seat of arbitration shall be Mumbai, Maharashtra.",
+    "type": "dispute_resolution",
+    "matched_text": "arbitration",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "Maharashtra"
+      ],
+      "dates": [
+        "1996"
+      ],
+      "locations": [
+        "Mumbai"
+      ]
+    }
+  },
+  {
+    "text": "9. Assignment Neither party may assign or transfer its rights or obligations under this Agreement to any third party without the prior written consent of the other party. Any attempted assignment in violation of this clause shall be null and void.",
+    "type": "assignment",
+    "matched_text": "Assignment",
+    "entities": {
+      "persons": [],
+      "orgs": [],
+      "dates": [],
+      "locations": []
+    }
+  },
+  {
+    "text": "10. Governing Law and Jurisdiction This Agreement shall be governed by and construed in accordance with the laws of India. The parties submit to the exclusive jurisdiction of the courts located in Mumbai, Maharashtra for resolution of any disputes not resolved through arbitration.",
+    "type": "governing_law",
+    "matched_text": "Governing Law",
+    "entities": {
+      "persons": [],
+      "orgs": [
+        "Maharashtra for"
+      ],
+      "dates": [],
+      "locations": [
+        "India",
+        "Mumbai"
+      ]
+    }
+  },
+  {
+    "text": "11. Notice All notices required or permitted under this Agreement shall be in writing and delivered to the addresses stated above. Notice shall be deemed received upon delivery by registered post, courier, or email with read receipt confirmed. IN WITNESS WHEREOF , the parties have executed this Agreement as of the date first written above. For Nexaflow Technologies Private Limited Signed: Priya Sharma, Director Date: 1st January 2024 For Arora Retail Solutions Private Limited Signed: Vikram Arora, CEO Date: 1st January 2024",
+    "type": "notice",
+    "matched_text": "Notice",
+    "entities": {
+      "persons": [
+        "Priya Sharma",
+        "Date",
+        "Vikram Arora"
+      ],
+      "orgs": [
+        "Notice All",
+        "Nexaflow Technologies Private Limited Signed",
+        "Arora Retail Solutions Private Limited Signed"
+      ],
+      "dates": [
+        "1st January 2024"
+      ],
+      "locations": []
+    }
   }
 ]
