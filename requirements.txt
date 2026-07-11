@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+PyPDF2
+pdf2image
+pytesseract
+spacy
+google-generativeai
+streamlit
+requests
+python-multipart

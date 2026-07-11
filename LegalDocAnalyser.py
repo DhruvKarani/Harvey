@@ -3,13 +3,17 @@ import PyPDF2
 from pdf2image import convert_from_path
 import pytesseract
 import re
-import tkinter as tk
-from tkinter import filedialog, scrolledtext
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# On Linux (Render, most servers), tesseract and poppler are installed as
+# system packages and are already on PATH, so pytesseract/pdf2image find them
+# automatically. We only override the path when TESSERACT_CMD or POPPLER_PATH
+# env vars are explicitly set (e.g. for local Windows dev).
+if os.environ.get("TESSERACT_CMD"):
+    pytesseract.pytesseract.tesseract_cmd = os.environ["TESSERACT_CMD"]
 
-poppler_path = r'C:\Users\dhruv\Downloads\Release-24.08.0-0\poppler-24.08.0\Library\bin'
-os.environ["PATH"] += os.pathsep + poppler_path
+poppler_path = os.environ.get("POPPLER_PATH")
+if poppler_path:
+    os.environ["PATH"] += os.pathsep + poppler_path
 
 try:
     print('[DEBUG] Tesseract version:', pytesseract.get_tesseract_version())
@@ -156,47 +160,10 @@ def summarize_document(text):
     return summary
 
 
-def process_file(filepath, output_box):
-    output_box.delete(1.0, tk.END)
-    if not filepath:
-        output_box.insert(tk.END, "No file selected.\n")
-        return
-    output_box.insert(tk.END, f"Processing file: {filepath}\n")
-    text = extract_text(filepath)
-    if not text.strip():
-        output_box.insert(tk.END, "No text could be extracted from this file.\n")
-        return
-    output_box.insert(tk.END, "\n--- Document Summary ---\n")
-    output_box.insert(tk.END, summarize_document(text) + "\n")
-    clauses = extract_clauses(text)
-    if not clauses:
-        output_box.insert(tk.END, "No clauses could be detected.\n")
-    else:
-        output_box.insert(tk.END, f"Found {len(clauses)} clauses. Summaries:\n")
-        for i, clause in enumerate(clauses, 1):
-            output_box.insert(tk.END, f"\nClause {i}:\n")
-            output_box.insert(tk.END, "Original: " + clause + "\n")
-            output_box.insert(tk.END, "Summary: " + summarize_clause(clause) + "\n")
-
-
-def upload_and_process(output_box):
-    filepath = filedialog.askopenfilename(
-        title="Select a legal document",
-        filetypes=[('PDF files', '*.pdf'), ('Text files', '*.txt'), ('All files', '*.*')]
-    )
-    if filepath:
-        process_file(filepath, output_box)
-
-
-if __name__ == '__main__':
-    root = tk.Tk()
-    root.title("Legal Document Analyzer")
-    root.geometry("800x600")
-
-    upload_btn = tk.Button(root, text="Upload File", command=lambda: upload_and_process(output_box))
-    upload_btn.pack(pady=10)
-
-    output_box = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=100, height=35)
-    output_box.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
-
-    root.mainloop()
+# NOTE: The original version of this file included a Tkinter desktop GUI
+# (process_file / upload_and_process / an `if __name__ == '__main__'` block
+# that launched a Tk window). That GUI is not used by the web app — app.py
+# and frontend.py call extract_text/summarize_document/extract_clauses/
+# summarize_clause directly over HTTP — so it has been removed along with
+# the `tkinter` import. Tkinter isn't installed in minimal Linux server
+# images, so keeping that import would crash the backend on startup.
