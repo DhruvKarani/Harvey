@@ -1,0 +1,25 @@
+# Base image: slim keeps the image small, still full Debian so apt works
+FROM python:3.11-slim
+
+# System dependencies pytesseract/pdf2image need to actually function.
+# Render's native Python runtime has no apt access at all — this is the
+# reason the backend has to be a Docker-based Web Service, not native Python.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tesseract-ocr \
+    poppler-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy requirements first so Docker caches this layer separately from code
+# (dependencies change far less often than source files, so this keeps
+# rebuilds fast when you're only editing app.py).
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+RUN python -m spacy download en_core_web_sm
+
+COPY . .
+
+# Render sets $PORT dynamically; 0.0.0.0 is required so the container
+# accepts traffic from outside itself, not just localhost.
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port $PORT"]
